@@ -6,18 +6,28 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = bookmark.new(bookmark_params)
-    # we need `restaurant_id` to associate review with corresponding restaurant
+    @bookmark = Bookmark.new(bookmark_params)
     @list = List.find(params[:list_id])
+    @movie = Movie.find(params[:bookmark][:movie_id])
     @bookmark.list = @list
-    @bookmark.save
-    redirect_to list_path(@list)
+    @bookmark.movie = @movie
+    if @bookmark.save
+      redirect_to list_path(@list)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to list_path(@bookmark.list)
   end
 
   private
 
-  def review_params
-    params.require(:review).permit(:content)
+  def bookmark_params
+    params.require(:bookmark).permit(:comment)
   end
 
 end
