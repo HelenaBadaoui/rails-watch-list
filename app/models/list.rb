@@ -5,8 +5,9 @@ class List < ApplicationRecord
   validates_uniqueness_of :name
 end
 
-#  name cannot be blank (FAILED - 3)
-#   name is unique (FAILED - 4)
-#   has many bookmarks (FAILED - 5)
-#   has many movies (FAILED - 6)
-#   should destroy child saved movies when destroying self (FAILED - 7)
+# has a name
+# name cannot be blank
+# name is unique
+# has many bookmarks
+# has many movies
+# should destroy child saved movies when destroying self
