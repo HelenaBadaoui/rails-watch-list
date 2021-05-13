@@ -9,8 +9,8 @@
   <p> <em><%= bookmark.movie.overview%></em></h1>
   <p> <em><%= image_tag bookmark.movie.poster_url, width: 200%></em></h1>
   <p> <em><%= bookmark.movie.rating%></em>
-  <p><%#= link_to "Delete #{bookmark.comment}",
-            list_path(@bookmark.list),
+  <p><%= link_to "Delete",
+            bookmark_path(bookmark),
             method: :delete,
             data: { confirm: "Are you sure?" } %></p>
 
