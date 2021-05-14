@@ -4,6 +4,7 @@
 
 <div>
 <%@list.bookmarks.each do |bookmark|%>
+
   <p> <strong><%= bookmark.movie.title%></strong></h1>
   <p><%= bookmark.comment%></p>
   <p> <em><%= bookmark.movie.overview%></em></h1>
@@ -15,6 +16,7 @@
             data: { confirm: "Are you sure?" } %></p>
 
 <%end%>
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
 </div>
 
 <div class = "footer">
